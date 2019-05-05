@@ -3,14 +3,29 @@
 }
 
 .textContainer {
-  border: solid 1px grey;
+  display: flex;
+  align-items: center;
+  height: 44px;
   padding: 10px;
   margin: 10px;
+  width: 45%;
+  text-align: left;
+}
+
+.identityField {
+
 }
 
 .mainContainer {
   display: flex;
   flex-direction: column;
+}
+
+.cvItem {
+  display: flex;
+  border-left: solid 1px lightgray;
+  border-right: solid 1px lightgray;
+  margin: 15px;
 }
 
 .settingButton {

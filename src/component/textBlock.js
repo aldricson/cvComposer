@@ -12,16 +12,14 @@ import {
 } from "@material-ui/core";
 import EditIcon from '@material-ui/icons/Edit';
 
-
 type Props = {
     content: string,
     handleChange: Function,
     theme: 'dark' | 'clear',
     id: string,
+    cvId: string,
     editMode: boolean
 }
-
-
 
 type State = {
     open: boolean,
@@ -50,11 +48,10 @@ class TextBlock extends React.Component<Props,State> {
         })
     };
 
-    handleCommitChange = (id,identity) => event => {
-        this.handleClose()
-        return this.props.handleChange(id, identity)
+    handleCommitChange = (cvId, id, field) => () => {
+        this.handleClose();
+        return this.props.handleChange(cvId, id, field)
     };
-
 
     handleClose = () => {
         this.setState({
@@ -62,23 +59,21 @@ class TextBlock extends React.Component<Props,State> {
         })
     };
 
-
     render() {
-        const { content, theme, id, editMode } = this.props;
+        const { content, theme, cvId, id, editMode } = this.props;
         const { open, field } = this.state;
 
         return (
             <div className={'textContainer'}>
-                <div>
-                    <div className="identityField">
-                        { content }
-                    </div>
-                    {editMode && <div className={'editButton'}>
-                        <IconButton  aria-label="Edit" onClick={this.handleClickOpen}>
-                            <EditIcon/>
-                        </IconButton>
-                    </div>}
+                <div className="identityField">
+                    { content }
                 </div>
+                {editMode && <div className={'editButton'}>
+                    <IconButton  aria-label="Edit" onClick={this.handleClickOpen}>
+                        <EditIcon/>
+                    </IconButton>
+                </div>}
+
                 <Dialog
                     open={open}
                     aria-labelledby="form-dialog-title"
@@ -103,7 +98,7 @@ class TextBlock extends React.Component<Props,State> {
                             Annulez
                         </Button>
 
-                        <Button onClick={this.handleCommitChange(id,field)} color="primary">
+                        <Button onClick={this.handleCommitChange(cvId, id, field)} color="primary">
                             Validez
                         </Button>
                     </DialogActions>
