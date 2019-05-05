@@ -1,0 +1,8 @@
+[ignore]
+.*/__tests__/.*
+.*/__mocks__/.*
+.*/_/.*
+
+[options]
+module.ignore_non_literal_requires=true
+esproposal.decorators=ignore

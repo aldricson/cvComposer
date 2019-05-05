@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.textContainer {
+  border: solid 1px grey;
+  padding: 10px;
+  margin: 10px;
+}
+
+.identityField {
+  text-align: left;
+}
