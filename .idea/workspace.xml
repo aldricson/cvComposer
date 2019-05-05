@@ -4,13 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/component/composer.js" line="24" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb26314d-decf-4d90-a17e-0bfca51b1340" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/component/cvItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/composer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/composer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/textBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/textBlock.js" afterDir="false" />
-    </list>
+    <list default="true" id="eb26314d-decf-4d90-a17e-0bfca51b1340" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -160,7 +154,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1557067423018</updated>
-      <workItem from="1557067424294" duration="19792000" />
+      <workItem from="1557067424294" duration="20069000" />
     </task>
     <task id="LOCAL-00001" summary="first commit based on first composer">
       <created>1557067791071</created>
@@ -176,11 +170,25 @@
       <option name="project" value="LOCAL" />
       <updated>1557076792786</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="there,s now an item vcontainer with 2 editable textblocks">
+      <created>1557087548637</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557087548637</updated>
+    </task>
+    <task id="LOCAL-00004" summary="there's now an item container called cvitems with 2 editable textblocks">
+      <created>1557087650256</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557087650256</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19792000" />
+    <option name="totallyTimeSpent" value="20069000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="2348" height="1407" extended-state="0" />
@@ -214,7 +222,9 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="first commit based on first composer" />
     <MESSAGE value="edit mode is now operational" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit mode is now operational" />
+    <MESSAGE value="there,s now an item vcontainer with 2 editable textblocks" />
+    <MESSAGE value="there's now an item container called cvitems with 2 editable textblocks" />
+    <option name="LAST_COMMIT_MESSAGE" value="there's now an item container called cvitems with 2 editable textblocks" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
