@@ -3,15 +3,14 @@ import React from 'react'
 import TextBlock from "./textBlock";
 import uuid from 'uuid/v1';
 import {Button} from "@material-ui/core";
+import IconButton from '@material-ui/core/IconButton';
+import SettingIcon from '@material-ui/icons/Settings';
 
-type Identite = {
-    nom: string,
-    prenom: string
-}
+
 
 type BlockDatasType = [
     {
-        content: Identite,
+        content: string,
         handleChange: Function,
         theme: string,
         id: string
@@ -21,7 +20,8 @@ type BlockDatasType = [
 type Props = {}
 
 type State = {
-    blockDatas: BlockDatasType
+    blockDatas: BlockDatasType,
+    editMode: boolean
 }
 
 
@@ -30,50 +30,53 @@ class Composer extends React.Component<Props,State> {
    state = {
        blockDatas: [
            {
-               content: {
-                   nom: 'Prolo',
-                   prenom: 'Raoul'
-               },
-               theme: 'dark',
-               id: uuid()
-           },
-           {
-               content: {
-                   nom: 'Furax',
-                   prenom: 'Sylvie'
-               },
+               content: 'Lorem opposum is an hypno sum',
                theme: 'dark',
                id: uuid()
            }
-       ]
+       ],
+       editMode: true
+   };
+
+   handleSettingClick = () => {
+       this.setState({
+           editMode: !this.state.editMode
+       })
    };
 
    handleCreate = () => {
      this.setState({
-         blockDatas: [...this.state.blockDatas, {content: 'next', theme: 'dark', id: uuid()}]
+         blockDatas: [...this.state.blockDatas, {content: 'Lorem opposum is an hypno sum', theme: 'dark', id: uuid()}]
      })
    };
 
-    handleCommitChange = (id, identity) => {
+    handleCommitChange = (id, content) => {
         this.setState({
             blockDatas: this.state.blockDatas.map(
                 blockData => blockData.id === id
-                    ? Object.assign({}, blockData, { content: identity })
+                    ? Object.assign({}, blockData, { content: content})
                     : blockData
             )
         })
     };
 
     render() {
-        const { blockDatas } = this.state;
+        const { blockDatas, editMode } = this.state;
         return (
-            <div>
-                {blockDatas.map((blockText, index) =>
-                        <TextBlock handleChange={this.handleCommitChange} {...blockText} key={index}/>
+            <div className= {'mainContainer'}>
+                <div className={'settingButton'}>
+                    <IconButton  aria-label="Edit" onClick={this.handleSettingClick}>
+                        <SettingIcon color={'secondary'} />
+                    </IconButton>
+                </div>
+                 {blockDatas.map((blockText, index) =>
+                        <TextBlock handleChange={this.handleCommitChange} {...blockText} key={index} editMode={editMode}/>
                 )}
-                <Button onClick={this.handleCreate} color="primary" variant={"outlined"}>
-                    Créer
-                </Button>
+                {editMode && <div>
+                    <Button onClick={this.handleCreate} color="primary" variant={"outlined"}>
+                        Créer
+                    </Button>
+                </div>}
             </div>
         )
     }

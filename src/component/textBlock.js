@@ -7,27 +7,25 @@ import {
     DialogContent,
     DialogContentText,
     DialogActions,
-    TextField
+    TextField,
+    IconButton
 } from "@material-ui/core";
+import EditIcon from '@material-ui/icons/Edit';
 
-type Identite = {
-    nom: string,
-    prenom: string
-}
 
 type Props = {
-    content: Identite,
+    content: string,
     handleChange: Function,
     theme: 'dark' | 'clear',
-    id: string
+    id: string,
+    editMode: boolean
 }
 
 
 
 type State = {
     open: boolean,
-    nom: string,
-    prenom: string
+    field: string
 }
 
 class TextBlock extends React.Component<Props,State> {
@@ -37,8 +35,7 @@ class TextBlock extends React.Component<Props,State> {
 
     state = {
         open: false,
-        nom: '',
-        prenom: ''
+        field:'Lorem Oppossum is a hypnosum'
     };
 
     handleClickOpen = () => {
@@ -47,15 +44,9 @@ class TextBlock extends React.Component<Props,State> {
       })
     };
 
-    handleNameChange = event => {
+    handleFieldChange = event => {
         this.setState({
-            nom: event.target.value
-        })
-    };
-
-    handleFirstNameChange = event => {
-        this.setState({
-            prenom: event.target.value
+            field: event.target.value
         })
     };
 
@@ -73,18 +64,20 @@ class TextBlock extends React.Component<Props,State> {
 
 
     render() {
-        const { content, theme, id } = this.props;
-        const { open, nom, prenom } = this.state;
+        const { content, theme, id, editMode } = this.props;
+        const { open, field } = this.state;
 
         return (
             <div className={'textContainer'}>
                 <div>
                     <div className="identityField">
-                        { `Nom: ${content.nom} --- Prenom: ${content.prenom}` }
+                        { content }
                     </div>
-                    <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-                        cliquez moi
-                    </Button>
+                    {editMode && <div className={'editButton'}>
+                        <IconButton  aria-label="Edit" onClick={this.handleClickOpen}>
+                            <EditIcon/>
+                        </IconButton>
+                    </div>}
                 </div>
                 <Dialog
                     open={open}
@@ -101,22 +94,8 @@ class TextBlock extends React.Component<Props,State> {
                             id="name"
                             label="tappez ici (pas trop fort)"
                             fullWidth
-                            defaultValue={content.nom}
-                            onChange={this.handleNameChange}
-                        />
-                    </DialogContent>
-                    <DialogContent>
-                        <DialogContentText>
-                            Veuillez tapper votre premom
-                        </DialogContentText>
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="tappez ici (pas trop fort)"
-                            fullWidth
-                            defaultValue={content.prenom}
-                            onChange={this.handleFirstNameChange}
+                            defaultValue={content}
+                            onChange={this.handleFieldChange}
                         />
                     </DialogContent>
                     <DialogActions>
@@ -124,7 +103,7 @@ class TextBlock extends React.Component<Props,State> {
                             Annulez
                         </Button>
 
-                        <Button onClick={this.handleCommitChange(id,{nom: nom, prenom: prenom})} color="primary">
+                        <Button onClick={this.handleCommitChange(id,field)} color="primary">
                             Validez
                         </Button>
                     </DialogActions>
